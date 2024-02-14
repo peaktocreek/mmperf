@@ -73,7 +73,7 @@ inline void *create_map(unsigned int numVma)
 
 	for (int j = 0; j < numVma; j++) {
 		if (j%2 == 0)
-			sys_mprotect(ptr, numVma * page_size, PROT_NONE);
+			sys_mprotect(ptr + j * page_size, page_size, PROT_NONE);
 	}
 
 	return ptr;
